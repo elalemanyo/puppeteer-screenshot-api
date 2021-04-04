@@ -1,4 +1,4 @@
-name: Heroku Deploy
+name: Deploy to Heroku
 
 on:
   push:
@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Deploy to Heroku
       if: github.ref == 'refs/heads/master' && job.status == 'success'
       run: |
