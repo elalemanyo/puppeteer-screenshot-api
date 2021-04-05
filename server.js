@@ -2,6 +2,8 @@ const express = require('express'),
       app = express(),
       puppeteer = require('puppeteer');
 
+const PORT = process.env.PORT || 3000;
+
 app.get("/", async (request, response) => {
     let url = (request.query.url)? request.query.url : "https://clocks.elalemanyo.de",
         fullPage = (request.query.fullpage)? (request.query.fullpage == 'true') : false;
@@ -53,6 +55,6 @@ app.get("/", async (request, response) => {
     }
 });
 
-var listener = app.listen(3000, function () {
+var listener = app.listen(PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
